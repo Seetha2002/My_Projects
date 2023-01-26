@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI CALCULATOR</title>
+        <script>
+            function bmi(){
+                var height = parseFloat(document.getElementById("h").value)
+                var weight = parseFloat(document.getElementById("w").value)
+                var bmi=weight/(height*height);
+                var f=document.getElementById("fname").value
+                var l=document.getElementById("lname").value
+                var age=document.getElementById("age").value
+                var userBMI=document.getElementById("bmi_index")
+                userBMI.textContent=bmi.toFixed(2);
+                if(f==null||f==""){
+                    alert("First Name can't be blank");
+                    return false;
+                }
+                else if(l==null||l==""){
+                    alert("Last Name can't be blank");
+                    return false;
+                }
+                else if(age==null||age==""){
+                    alert("Age can't be blank");
+                    return false;
+                }
+
+                if(height > 0 && weight> 0 ){
+                if (bmi<18.5){
+                    //alert("YOU ARE  UNDER UNDERWEIGHT CATEGORY")
+                    document.getElementById("msg1").innerHTML="DEAR"+" "+f+" "+l+" "+" YOU ARE  UNDERWEIGHT"
+                }
+                else if(bmi>=18.5 && bmi<=24.9){
+                    //alert("YOU ARE UNDER NORMAL WEIGHT CATEGORY")
+                    document.getElementById("msg1").innerHTML="DEAR"+" "+f+" "+l+" "+" YOU ARE HEALTHY"
+                }
+                else if(bmi>=25 && bmi<=29.9){
+                    //alert("YOU ARE UNDER OVERWEIGHT CATEGORY")
+                    document.getElementById("msg1").innerHTML="DEAR"+" "+f+" "+l+" "+" YOU ARE OVERWEIGHT"
+                }
+                else if(bmi>=30 && bmi<=39.9){
+                    document.getElementById("msg1").innerHTML="DEAR"+" "+f+" "+l+" "+" YOU ARE OBESE"
+                }
+                else{
+                    document.getElementById("msg1").innerHTML="DEAR"+" "+f+" "+l+" "+" YOU ARE SEVERLY OBESE"
+                }
+            }
+            else{
+                alert("Please Fill in Everything Correctly")
+            }
+               
+            }    
+        </script>
+        <style>
+            body{
+                
+                font-size:xx-large;
+                background-color:darkcyan;
+                background-image:url("bmibg.webp");
+                background-repeat: no-repeat;
+               
+                border-radius: 5px;
+                background-size:2250px;
+                background-position: -90vh;
+               
+                color:white
+              
+            }
+            #click{
+               margin-left: 180px;
+            }
+            #bm{
+                margin-left: 180px;
+            }
+            th,td {
+                
+                padding:20px;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <table style="margin-top:50px">
+            <tr>
+                <form name="msg">
+                    <th> <label for="fname"><b>First Name </b></label></th>
+                    <th> : </th>
+                    <th><input type="text" id="fname" name="First_Name" Placeholder="Enter your First Name.." style="height:20px" required></th>
+                </form>
+            </tr>
+            <tr>
+                <form>
+                    <th> <label for="lname"><b>Last Name </b></label></th>
+                    <th> : </th>
+                    <th><input type="text" id="lname" name="Last_Name" Placeholder="Enter your Last Name.."style="height:20px" required></th>
+                </form>
+            </tr>
+            <tr>
+                <form>
+                    <th> <label for="age"><b>Age </b></label></th>
+                    <th> : </th>
+                    <th><input type="number" id="age" name="Age" Placeholder="Enter your Age.."style="height:20px" required></th>
+                </form>
+            </tr>
+            <tr>
+                <form>
+                    <th> <b>Height in Meters</b></th>
+                    <th> : </th>
+                    <th> <input type="text" id="h" placeholder="Enter your Height in meters..."style="height:20px"></th>
+                </form>
+            </tr>
+            <tr>
+                <form>
+                    <th> <b> Weight in Kg</b></th>
+                    <th> : </th>
+                    <th><input type="text" id="w" placeholder="Enter your Weight in Kg..."style="height:20px"></th>
+                </form>
+            </tr>
+            
+        
+            
+            
+        </table><br>
+        <input type="button" value="Calculate BMI" onclick="bmi()"  id="click" style="height:40px;margin-left:18%">
+        
+    
+        <h4  id="bm">BMI=<b id ="bmi_index"></b></h3>
+            
+        <p id="msg1" style="margin-left:50px;text-align: center; color:chartreuse;margin-top: 5%;" >MESSAGE:</p>
+    </body>
+    
+</html>
